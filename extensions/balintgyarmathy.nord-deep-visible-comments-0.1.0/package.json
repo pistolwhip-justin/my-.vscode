@@ -1,0 +1,37 @@
+{
+	"name": "nord-deep-visible-comments",
+	"displayName": "Nord Deep but you can actually see comments",
+	"description": "Nord Deep but you can actually see comments",
+	"repository": "https://github.com/gyaur/vscode-theme-nord-deep",
+	"publisher": "BalintGyarmathy",
+	"version": "0.1.0",
+	"icon": "icon.png",
+	"engines": {
+		"vscode": "^1.39.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Visible Comments Nord Deep",
+				"uiTheme": "vs-dark",
+				"path": "./themes/nord-deep-color-theme.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "5a03c770-04da-4e0f-ad26-ee8a7ebcd1b7",
+		"publisherId": "344b22cc-22c2-4a45-aa23-5bc7c16a8e79",
+		"publisherDisplayName": "Bálint Gyarmathy",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1732654728656,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}

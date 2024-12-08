@@ -1,0 +1,33 @@
+# VS Code extension data that shouldn't be backed up
+extensions/**/cache/
+extensions/**/logs/
+extensions/**/*.log
+extensions/**/temp/
+extensions/**/.temp/
+
+# Extension development files
+extensions/**/.vscode-test/
+extensions/**/.vsix
+
+# CLI tool temporary files and logs
+cli/**/logs/
+cli/**/*.log
+cli/**/temp/
+cli/**/.temp/
+
+# System files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+*.temp
+
+# Keep all extension and CLI configurations
+!extensions/**/package.json
+!extensions/**/settings.json
+!cli/**/config.json
+!cli/**/settings.json

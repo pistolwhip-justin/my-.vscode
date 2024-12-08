@@ -1,0 +1,317 @@
+{
+	"name": "snippet",
+	"displayName": "Snippet",
+	"description": "Extension for creating code and managing user defined code snippets",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"version": "1.1.0",
+	"publisher": "devonray",
+	"icon": "resources/logo.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/devon2018/snippet"
+	},
+	"extensionKind": [
+		"workspace",
+		"ui"
+	],
+	"galleryBanner": {
+		"color": "#1289B9",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.48.0"
+	},
+	"categories": [
+		"Snippets",
+		"Extension Packs",
+		"Other"
+	],
+	"keywords": [
+		"Snippets",
+		"Snippet",
+		"Snipp",
+		"Sharing"
+	],
+	"activationEvents": [
+		"onStartupFinished",
+		"onCommand:extension.createSnipp",
+		"onCommand:extension.searchSnipps",
+		"onCommand:extension.insertSnipp",
+		"onCommand:extension.importSnipps",
+		"onCommand:extension.exportSnipps",
+		"onCommand:extension.exportTerminalSnipps",
+		"onCommand:extension.deleteAllSnippets",
+		"onCommand:extension.refreshEntry",
+		"onCommand:extension.importSnipps",
+		"onCommand:extension.addEntry",
+		"onCommand:extension.editEntry",
+		"onCommand:extension.deleteEntry",
+		"onCommand:extension.insertEntry",
+		"onView:allSnipps",
+		"snippet.snippetEdit"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"views": {
+			"snippView": [
+				{
+					"id": "allSnipps",
+					"name": "Editor"
+				},
+				{
+					"id": "terminalSnipps",
+					"name": "Terminal"
+				}
+			]
+		},
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "extension.createSnipp",
+					"when": "editorHasSelection"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "extension.createSnipp",
+					"when": "editorHasSelection",
+					"group": "snippet"
+				},
+				{
+					"command": "extension.insertSnipp",
+					"group": "snippet",
+					"title": "Insert snipp"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "allSnipps.deleteEntry",
+					"group": "snippet",
+					"when": "view == allSnipps"
+				},
+				{
+					"command": "allSnipps.insertEntry",
+					"group": "snippet",
+					"when": "view == allSnipps"
+				},
+				{
+					"command": "allSnipps.editEntry",
+					"group": "snippet",
+					"when": "view == allSnipps"
+				},
+				{
+					"command": "terminalSnipps.deleteEntry",
+					"group": "snippet",
+					"when": "view == terminalSnipps"
+				},
+				{
+					"command": "terminalSnipps.insertEntry",
+					"group": "snippet",
+					"when": "view == terminalSnipps"
+				},
+				{
+					"command": "terminalSnipps.editEntry",
+					"group": "snippet",
+					"when": "view == terminalSnipps"
+				}
+			],
+			"view/title": [
+				{
+					"command": "allSnipps.refreshEntry",
+					"group": "navigation",
+					"when": "view == allSnipps"
+				},
+				{
+					"command": "extension.searchSnipps",
+					"group": "navigation",
+					"when": "view == allSnipps"
+				},
+				{
+					"command": "extension.importSnipps",
+					"group": "navigation",
+					"when": "view == allSnipps && false"
+				},
+				{
+					"command": "terminalSnipps.addSnipp",
+					"group": "navigation",
+					"when": "view == terminalSnipps"
+				},
+				{
+					"command": "terminalSnipps.searchSnipps",
+					"group": "navigation",
+					"when": "view == terminalSnipps"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "extension.searchSnipps",
+				"group": "snippet",
+				"title": "Search Snippets",
+				"icon": {
+					"light": "resources/icons/search.svg",
+					"dark": "resources/icons/search.svg"
+				}
+			},
+			{
+				"command": "extension.insertSnipp",
+				"group": "snippet",
+				"title": "Insert snippet"
+			},
+			{
+				"command": "extension.exportSnipps",
+				"group": "snippet",
+				"title": "Export Snippets",
+				"icon": {
+					"light": "resources/icons/import-snipps.svg",
+					"dark": "resources/icons/import-snipps.svg"
+				}
+			},
+			{
+				"command": "extension.exportTerminalSnipps",
+				"group": "snippet",
+				"title": "Export Terminal Snippets",
+				"icon": {
+					"light": "resources/icons/import-snipps.svg",
+					"dark": "resources/icons/import-snipps.svg"
+				}
+			},
+			{
+				"command": "extension.deleteAllSnippets",
+				"group": "snippet",
+				"title": "Delete All Snippets",
+				"icon": {
+					"light": "resources/icons/import-snipps.svg",
+					"dark": "resources/icons/import-snipps.svg"
+				}
+			},
+			{
+				"command": "extension.importSnipps",
+				"group": "snippet",
+				"title": "Import Snippets",
+				"icon": {
+					"light": "resources/icons/import-snipps.svg",
+					"dark": "resources/icons/import-snipps.svg"
+				}
+			},
+			{
+				"command": "extension.createSnipp",
+				"title": "Create Snippet",
+				"group": "snippet"
+			},
+			{
+				"command": "allSnipps.refreshEntry",
+				"title": "Refresh",
+				"icon": {
+					"light": "resources/icons/refresh.svg",
+					"dark": "resources/icons/refresh.svg"
+				}
+			},
+			{
+				"command": "terminalSnipps.addSnipp",
+				"title": "Add",
+				"icon": {
+					"light": "resources/icons/add-icon.svg",
+					"dark": "resources/icons/add-icon.svg"
+				}
+			},
+			{
+				"command": "terminalSnipps.searchSnipps",
+				"title": "Search Terminal Snippets",
+				"icon": {
+					"light": "resources/icons/search.svg",
+					"dark": "resources/icons/search.svg"
+				}
+			},
+			{
+				"command": "allSnipps.addEntry",
+				"title": "Add"
+			},
+			{
+				"command": "allSnipps.editEntry",
+				"title": "Edit"
+			},
+			{
+				"command": "allSnipps.deleteEntry",
+				"title": "Delete"
+			},
+			{
+				"command": "allSnipps.insertEntry",
+				"title": "Insert"
+			},
+			{
+				"command": "terminalSnipps.editEntry",
+				"title": "Edit"
+			},
+			{
+				"command": "terminalSnipps.deleteEntry",
+				"title": "Delete"
+			},
+			{
+				"command": "terminalSnipps.insertEntry",
+				"title": "Insert"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "snippView",
+					"title": "Snippets",
+					"icon": "resources/icons/logo-light.svg"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "extension.insertSnipp",
+				"key": "shift+cmd+i",
+				"mac": "shift+cmd+i",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.createSnipp",
+				"key": "shift+cmd+c",
+				"mac": "shift+cmd+c",
+				"when": "editorHasSelection"
+			}
+		]
+	},
+	"homepage": "https://djinnapps.com/snippet",
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"coverage": "nyc report --reporter=lcov",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"test": "nyc mocha 'out/test/**/*.test.js'"
+	},
+	"devDependencies": {
+		"@types/glob": "^8.0.0",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "^18.11.13",
+		"@types/vscode": "^1.42.0",
+		"@typescript-eslint/eslint-plugin": "^5.46.0",
+		"@typescript-eslint/parser": "^5.46.0",
+		"eslint": "^6.8.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.2.0",
+		"typescript": "^4.9.4"
+	},
+	"dependencies": {
+		"nyc": "^15.1.0"
+	},
+	"__metadata": {
+		"id": "ad19cedd-2d53-4f0a-be6c-7f2927b6c23b",
+		"publisherId": "0a9f8f4e-2d79-4c2e-9dc5-8f7e0d140bf3",
+		"publisherDisplayName": "Devon Ray",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1732654729030,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}
